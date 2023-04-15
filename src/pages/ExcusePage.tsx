@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import ExcuseComponent from "../components/ExcuseComponent";
+import ExcuseComponent from "../components/Excuse/ExcuseComponent";
 import NotFoundPage from "./NotFoundPage";
 
 const ExcusePage: React.FC = () => {
