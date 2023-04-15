@@ -7,11 +7,7 @@ const ExcusePage: React.FC = () => {
 
   return (
     <>
-      {typeof httpcode === "number" ? (
-        <ExcuseComponent httpCode={+httpcode} />
-      ) : (
-        <NotFoundPage />
-      )}
+      {httpcode ? <ExcuseComponent httpCode={+httpcode} /> : <NotFoundPage />}
     </>
   );
 };

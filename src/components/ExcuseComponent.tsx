@@ -38,7 +38,7 @@ const ExcuseComponent: React.FC<ExcuseComponentProps> = ({ httpCode }) => {
           <button onClick={generateNewExcuse}>Generate New Excuse</button>
         </>
       ) : (
-        <></>
+        <NotFoundPage />
       )}
     </>
   );
