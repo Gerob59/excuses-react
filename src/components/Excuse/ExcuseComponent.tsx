@@ -26,9 +26,7 @@ const ExcuseComponent: React.FC<ExcuseComponentProps> = ({ httpCode }) => {
       {excuse ? (
         <div className="minimaliste ">
           <h1>Excuse de dev</h1>
-          <p>
-            {excuse.httpCode} {excuse.tag} {excuse.message}
-          </p>
+          <p>{excuse.message}</p>
           <CustomButton labels={labels} />
         </div>
       ) : (
