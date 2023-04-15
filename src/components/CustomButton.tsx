@@ -10,7 +10,10 @@ const CustomButton: React.FC<CustomButtonProps> = ({ labels }) => {
   );
 
   const handleClick = () => {
-    const randomIndex = Math.floor(Math.random() * labels.length);
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * labels.length);
+    } while (labels[randomIndex] === currentLabel);
     setCurrentLabel(labels[randomIndex]);
   };
 
