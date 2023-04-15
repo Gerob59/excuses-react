@@ -1,10 +1,18 @@
 import { useParams } from "react-router-dom";
 import ExcuseComponent from "../components/ExcuseComponent";
+import NotFoundPage from "./NotFoundPage";
 
 const ExcusePage: React.FC = () => {
   const { httpcode } = useParams<string>();
-  const code = httpcode!; // Ajout de la vérification de nullité
 
-  return <ExcuseComponent httpCode={+code} />;
+  return (
+    <>
+      {typeof httpcode === "number" ? (
+        <ExcuseComponent httpCode={+httpcode} />
+      ) : (
+        <NotFoundPage />
+      )}
+    </>
+  );
 };
 export default ExcusePage;
