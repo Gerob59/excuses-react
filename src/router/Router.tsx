@@ -1,10 +1,21 @@
 import { RouteObject, useRoutes } from "react-router-dom";
+import HomePage from "../pages/HomePage";
+import LostPage from "../pages/LostPage";
+import ExcusePage from "../pages/ExcusePage";
 
 const Router: React.FC = () => {
   const routes: RouteObject[] = [
     {
       path: "/",
-      element: <></>,
+      element: <HomePage />,
+    },
+    {
+      path: "/:httpcode",
+      element: <ExcusePage />,
+    },
+    {
+      path: "/lost",
+      element: <LostPage />,
     },
   ];
   return useRoutes(routes);
