@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Excuse from "../models/Excuse";
 import ExcuseService from "../services/ExcuseService";
 import Modal from "react-modal";
+import "./NewExcuseModal.css";
 
 Modal.setAppElement("#root");
 
@@ -47,41 +48,60 @@ const NewExcuseModal: React.FC<NewExcuseModalProps> = ({ open, onClose }) => {
       onRequestClose={handleCancel}
       contentLabel="Nouvelle excuse"
     >
-      <h2>Nouvelle excuse</h2>
-      <form>
-        <label htmlFor="http_code">http_code</label>
-        <input
-          type="number"
-          value={httpCode}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setHttpCode(+e.target.value)
-          }
-        />
-        <label htmlFor="tag">tag</label>
-        <input
-          type="text"
-          value={tag}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setTag(e.target.value)
-          }
-        />
-        <label htmlFor="message">message</label>
-        <input
-          type="text"
-          value={message}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setMessage(e.target.value)
-          }
-        />
-        <div>
-          <button type="button" onClick={handleCancel}>
-            Annuler
-          </button>
-          <button type="button" onClick={handleOk}>
-            Enregistrer
-          </button>
-        </div>
-      </form>
+      <div className="modal-container">
+        <h2 className="modal-title">Nouvelle excuse</h2>
+        <form>
+          <label htmlFor="http_code" className="modal-label">
+            http_code
+          </label>
+          <input
+            type="number"
+            value={httpCode}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setHttpCode(+e.target.value)
+            }
+            className="modal-input"
+          />
+          <label htmlFor="tag" className="modal-label">
+            tag
+          </label>
+          <input
+            type="text"
+            value={tag}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setTag(e.target.value)
+            }
+            className="modal-input"
+          />
+          <label htmlFor="message" className="modal-label">
+            message
+          </label>
+          <input
+            type="text"
+            value={message}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setMessage(e.target.value)
+            }
+            className="modal-input"
+          />
+          <div className="modal-buttons">
+            <button
+              type="button"
+              onClick={handleCancel}
+              className="modal-cancel-button"
+            >
+              Annuler
+            </button>
+            <button
+              type="button"
+              onClick={handleOk}
+              className="modal-ok-button"
+            >
+              Enregistrer
+            </button>
+          </div>
+        </form>
+      </div>
     </Modal>
   );
 };
