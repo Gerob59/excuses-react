@@ -1,9 +1,9 @@
 export default class Excuse {
   public httpCode: number;
-  public tag: String;
-  public message: String;
+  public tag: string;
+  public message: string;
 
-  constructor(httpCode: number, tag: String = "", message: String = "") {
+  constructor(httpCode: number, tag: string, message: string) {
     this.httpCode = httpCode;
     this.tag = tag;
     this.message = message;
