@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ExcuseComponent from "../components/Excuse/ExcuseComponent";
 import "./ExcusePage.css";
 
@@ -11,6 +11,7 @@ const ExcusePage: React.FC = () => {
       <h1 className="excuse-title">
         {httpcode && <ExcuseComponent httpCode={+httpcode} />}
       </h1>
+      <Link to="/">Retour à la page d'accueil</Link>
     </div>
   );
 };
