@@ -1,6 +1,6 @@
 import Excuse from "../models/Excuse";
 
-const API_URL = "http://localhost:8080/excuse";
+const API_URL = "http://localhost:8080/excuses";
 
 export default class ExcuseService {
   public static async getAllExcuses(): Promise<Excuse[]> {
