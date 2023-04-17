@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Excuse from "../../models/Excuse";
 import NotFoundPage from "../../pages/NotFoundPage";
 import ExcuseService from "../../services/ExcuseService";
-import CustomButton from "../CustomButton";
+import CustomButton from "../Button/CustomButton";
 import "./ExcuseComponent.css";
 import LabelService from "../../services/LabelService";
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NewExcuseModal from "../components/NewExcuseModal";
+import NewExcuseModal from "../components/Modal/NewExcuseModal";
 
 const HomePage: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);

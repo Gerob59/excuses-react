@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Excuse from "../models/Excuse";
-import ExcuseService from "../services/ExcuseService";
+import Excuse from "../../models/Excuse";
+import ExcuseService from "../../services/ExcuseService";
 import Modal from "react-modal";
 import "./NewExcuseModal.css";
 import { useNavigate } from "react-router-dom";
