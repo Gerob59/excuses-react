@@ -13,7 +13,7 @@ interface NewExcuseModalProps {
 }
 
 const NewExcuseModal: React.FC<NewExcuseModalProps> = ({ open, onClose }) => {
-  const [httpCode, setHttpCode] = useState<number>(NaN);
+  const [httpCode, setHttpCode] = useState<number>(0);
   const [tag, setTag] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ const NewExcuseModal: React.FC<NewExcuseModalProps> = ({ open, onClose }) => {
   };
 
   const reset = () => {
-    setHttpCode(NaN);
+    setHttpCode(0);
     setTag("");
     setMessage("");
   };
