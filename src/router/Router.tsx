@@ -1,5 +1,5 @@
 import { RouteObject, useRoutes } from "react-router-dom";
-import HomePage from "../pages/HomePage";
+import HomePage from "../pages/HomePage/HomePage";
 import LostPage from "../pages/LostPage";
 import ExcusePage from "../pages/ExcusePage";
 import NotFoundPage from "../pages/NotFoundPage";
