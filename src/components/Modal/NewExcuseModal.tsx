@@ -16,6 +16,7 @@ const NewExcuseModal: React.FC<NewExcuseModalProps> = ({ open, onClose }) => {
   const [httpCode, setHttpCode] = useState<number>(0);
   const [tag, setTag] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const handleOk = async () => {
@@ -23,9 +24,14 @@ const NewExcuseModal: React.FC<NewExcuseModalProps> = ({ open, onClose }) => {
       alert("Les champs ne sont pas valides");
       return;
     }
+    setIsLoading(true);
     const excuse = new Excuse(httpCode, tag, message);
     try {
+      await new Promise((resolve) => {
+        setTimeout(resolve, Math.floor(Math.random() * 4000) + 1000);
+      });
       await ExcuseService.createExcuse(excuse);
+      setIsLoading(false);
       navigate(`/${httpCode}`);
     } catch (err) {
       console.error(err);
@@ -98,9 +104,10 @@ const NewExcuseModal: React.FC<NewExcuseModalProps> = ({ open, onClose }) => {
             <button
               type="button"
               onClick={handleOk}
-              className="modal-ok-button"
+              className={`modal-ok-button ${isLoading ? "loading" : ""}`}
+              disabled={isLoading}
             >
-              Enregistrer
+              {isLoading ? "Chargement..." : "Enregistrer"}
             </button>
           </div>
         </form>

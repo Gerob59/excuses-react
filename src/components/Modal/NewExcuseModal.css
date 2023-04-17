@@ -62,3 +62,7 @@ form {
 .modal-ok-button:hover {
   background-color: #0069d9;
 }
+
+.loading {
+  cursor: wait;
+}
