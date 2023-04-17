@@ -3,6 +3,7 @@ import Excuse from "../models/Excuse";
 import ExcuseService from "../services/ExcuseService";
 import Modal from "react-modal";
 import "./NewExcuseModal.css";
+import { useNavigate } from "react-router-dom";
 
 Modal.setAppElement("#root");
 
@@ -15,6 +16,7 @@ const NewExcuseModal: React.FC<NewExcuseModalProps> = ({ open, onClose }) => {
   const [httpCode, setHttpCode] = useState<number>(NaN);
   const [tag, setTag] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const navigate = useNavigate();
 
   const handleOk = async () => {
     if (isNaN(httpCode) || tag.trim() === "" || message.trim() === "") {
@@ -24,6 +26,7 @@ const NewExcuseModal: React.FC<NewExcuseModalProps> = ({ open, onClose }) => {
     const excuse = new Excuse(httpCode, tag, message);
     try {
       await ExcuseService.createExcuse(excuse);
+      navigate(`/${httpCode}`);
     } catch (err) {
       console.error(err);
     }
