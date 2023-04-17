@@ -1,14 +1,17 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import ExcuseComponent from "../components/Excuse/ExcuseComponent";
-import NotFoundPage from "./NotFoundPage";
+import "./ExcusePage.css";
 
 const ExcusePage: React.FC = () => {
-  const { httpcode } = useParams<string>();
+  const { httpcode } = useParams<{ httpcode: string }>();
 
   return (
-    <>
-      {httpcode ? <ExcuseComponent httpCode={+httpcode} /> : <NotFoundPage />}
-    </>
+    <div className="excuse-page-container">
+      <h1 className="excuse-title">
+        {httpcode && <ExcuseComponent httpCode={+httpcode} />}
+      </h1>
+    </div>
   );
 };
 
