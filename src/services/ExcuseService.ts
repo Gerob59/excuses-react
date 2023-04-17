@@ -19,7 +19,7 @@ export default class ExcuseService {
     return await fetch(API_URL, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(excuse),
+      body: excuse.toJSON(),
     })
       .then((response) => response.json())
       .catch((error) => this.error(error));
@@ -29,7 +29,7 @@ export default class ExcuseService {
     return await fetch(`${API_URL}/${excuse.httpCode}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(excuse),
+      body: excuse.toJSON(),
     })
       .then((response) => response.json())
       .catch((error) => this.error(error));
