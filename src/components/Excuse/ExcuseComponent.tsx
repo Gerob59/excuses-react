@@ -17,12 +17,8 @@ const ExcuseComponent: React.FC<ExcuseComponentProps> = ({ httpCode }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    ExcuseService.getExcuseById(httpCode)
-      .then((excuse) => setExcuse(excuse))
-      .catch(() => navigate("/not-found"));
-    LabelService.getAllLabels()
-      .then((labels) => setLabels(labels))
-      .catch(() => navigate("not-found"));
+    ExcuseService.getExcuseById(httpCode).then((excuse) => setExcuse(excuse));
+    LabelService.getAllLabels().then((labels) => setLabels(labels));
   }, [httpCode, navigate]);
 
   return (
