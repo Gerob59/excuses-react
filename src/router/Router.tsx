@@ -18,10 +18,6 @@ const Router: React.FC = () => {
       path: "/lost",
       element: <LostPage />,
     },
-    {
-      path: "/not-found",
-      element: <NotFoundPage />,
-    },
   ];
   return useRoutes(routes);
 };

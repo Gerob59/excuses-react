@@ -11,16 +11,16 @@ interface NewExcuseModalProps {
 }
 
 const NewExcuseModal: React.FC<NewExcuseModalProps> = ({ open, onClose }) => {
-  const [http_code, setHttp_code] = useState<number>(0);
+  const [httpCode, setHttpCode] = useState<number>(NaN);
   const [tag, setTag] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
   const handleOk = async () => {
-    if (isNaN(http_code) || tag.trim() === "" || message.trim() === "") {
+    if (isNaN(httpCode) || tag.trim() === "" || message.trim() === "") {
       alert("Les champs ne sont pas valides");
       return;
     }
-    const excuse = new Excuse(http_code, tag, message);
+    const excuse = new Excuse(httpCode, tag, message);
     try {
       await ExcuseService.createExcuse(excuse);
     } catch (err) {
@@ -36,7 +36,7 @@ const NewExcuseModal: React.FC<NewExcuseModalProps> = ({ open, onClose }) => {
   };
 
   const reset = () => {
-    setHttp_code(0);
+    setHttpCode(NaN);
     setTag("");
     setMessage("");
   };
@@ -52,9 +52,9 @@ const NewExcuseModal: React.FC<NewExcuseModalProps> = ({ open, onClose }) => {
         <label htmlFor="http_code">http_code</label>
         <input
           type="number"
-          value={http_code}
+          value={httpCode}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setHttp_code(+e.target.value)
+            setHttpCode(+e.target.value)
           }
         />
         <label htmlFor="tag">tag</label>
